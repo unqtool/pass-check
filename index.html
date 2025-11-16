@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Pass Check 🛡️ | Free Password Strength Analyzer & Generator</title>
+    <meta name="description" content="Check your password strength in real-time. Estimate crack time and get suggestions for a more secure password. Free, fast, and secure password generator.">
+    <meta name="keywords" content="password analyzer, password generator, password strength, time to crack password, secure password, pass check">
+
+    <link rel="stylesheet" href="style.css">
+    
+    <script src="script.js" defer></script>
+</head>
+<body>
+
+    <header class="header">
+        <div class="container">
+            <h1><a href="/">Pass Check 🛡️</a></h1>
+            <p class="subtitle">Analyze strength & generate secure passwords instantly.</p>
+        </div>
+    </header>
+
+    <main class="container">
+        
+        <section class="card analyzer-card">
+            <h2>Password Strength Analyzer</h2>
+            
+            <div class="input-group">
+                <input type="password" id="password-input" class="password-input" placeholder="Type your password here..." aria-label="Password Input Field">
+                <button id="toggle-password" class="toggle-btn" aria-label="Show/Hide Password">Show</button>
+            </div>
+            
+            <div class="strength-meter">
+                <div id="strength-bar" class="strength-bar"></div>
+            </div>
+            <p class="strength-text" id="strength-text">Enter a password to analyze</p>
+
+            <div class="analysis-details">
+                <p class="crack-time">Estimated time to crack: <strong id="crack-time">---</strong></p>
+                
+                <h3>Suggestions & Checks:</h3>
+                <ul id="feedback-list" class="feedback-list">
+                    <li id="check-length">At least 8 characters</li>
+                    <li id="check-uppercase">Contains uppercase (A-Z)</li>
+                    <li id="check-lowercase">Contains lowercase (a-z)</li>
+                    <li id="check-number">Contains numbers (0-9)</li>
+                    <li id="check-symbol">Contains symbols (!@#)</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="card generator-card">
+            <h2>Secure Password Generator</h2>
+            
+            <div class="generated-password-group">
+                <input type="text" id="generated-password" class="password-input" readonly placeholder="Click 'Generate' to create a password">
+                <button id="copy-password" class="copy-btn" aria-label="Copy Password">Copy</button>
+            </div>
+            
+            <div class="generator-options">
+                <div class="option">
+                    <label for="length-slider">Password Length: <span id="length-value">16</span></label>
+                    <input type="range" id="length-slider" min="8" max="64" value="16" aria-label="Password Length Slider">
+                </div>
+                <div class="option-checkboxes">
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="include-uppercase" checked>
+                        <label for="include-uppercase">Uppercase (A-Z)</label>
+                    </div>
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="include-lowercase" checked>
+                        <label for="include-lowercase">Lowercase (a-z)</label>
+                    </div>
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="include-numbers" checked>
+                        <label for="include-numbers">Numbers (0-9)</label>
+                    </div>
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="include-symbols" checked>
+                        <label for="include-symbols">Symbols (!@#)</label>
+                    </div>
+                </div>
+            </div>
+            
+            <button id="generate-btn" class="btn-primary">Generate Password</button>
+        </section>
+
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-links">
+                <a href="about.html">About Us</a>
+                <a href="privacy.html">Privacy Policy</a>
+                <a href="contact.html">Contact Us</a>
+            </div>
+            <p class="copyright">&copy; 2025 Pass Check. All rights reserved. Built for security.</p>
+        </div>
+    </footer>
+
+</body>
+</html>

@@ -1,0 +1,280 @@
+/* --- Root Variables & Basic Setup --- */
+:root {
+    --color-primary: #007bff; /* Primary Blue - Trust */
+    --color-secure: #28a745; /* Secure Green */
+    --color-danger-dark: #721c24;
+    --color-bg: #f8f9fa;
+    --color-card-bg: #ffffff;
+    --color-text: #212529;
+    --color-text-muted: #6c757d;
+    --color-border: #dee2e6;
+    
+    --font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+    --border-radius: 8px;
+    --box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    font-size: 16px;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-family);
+    background-color: var(--color-bg);
+    color: var(--color-text);
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+}
+
+/* --- Header & Footer --- */
+.header {
+    padding: 2rem 0;
+    border-bottom: 1px solid var(--color-border);
+    background-color: var(--color-card-bg);
+}
+.header h1 {
+    font-size: 2.5rem;
+    color: var(--color-text);
+    text-align: center;
+}
+.header h1 a {
+    text-decoration: none;
+    color: inherit;
+}
+.subtitle {
+    text-align: center;
+    font-size: 1.1rem;
+    color: var(--color-text-muted);
+    margin-top: 0.25rem;
+}
+
+.footer {
+    padding: 2rem 0;
+    text-align: center;
+    color: var(--color-text-muted);
+    font-size: 0.9rem;
+    margin-top: 2rem;
+    border-top: 1px solid var(--color-border);
+}
+
+/* Footer Link Styles */
+.footer-links {
+    margin-bottom: 1rem;
+}
+.footer-links a {
+    color: var(--color-text-muted);
+    text-decoration: none;
+    margin: 0 0.75rem;
+    font-size: 0.9rem;
+}
+.footer-links a:hover {
+    color: var(--color-primary);
+    text-decoration: underline;
+}
+.footer .copyright {
+    color: var(--color-text-muted);
+    font-size: 0.9rem;
+}
+
+/* --- Card Layout --- */
+.card {
+    background-color: var(--color-card-bg);
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    padding: 2rem;
+    margin-top: 2rem;
+}
+.card h2 {
+    font-size: 1.75rem;
+    margin-bottom: 1.5rem;
+    border-bottom: 1px solid var(--color-border);
+    padding-bottom: 0.75rem;
+}
+
+/* --- Input Groups --- */
+.input-group, .generated-password-group {
+    display: flex;
+    margin-bottom: 1rem;
+}
+.password-input {
+    flex-grow: 1;
+    padding: 0.75rem 1rem;
+    font-size: 1rem;
+    border: 1px solid var(--color-border);
+    border-radius: var(--border-radius) 0 0 var(--border-radius);
+    outline: none;
+    transition: border-color 0.2s;
+}
+.password-input:focus {
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25);
+}
+.password-input[readonly] {
+    background-color: #e9ecef;
+    cursor: not-allowed;
+}
+
+.toggle-btn, .copy-btn {
+    padding: 0 1.25rem;
+    border: 1px solid var(--color-border);
+    border-left: 0;
+    background-color: #e9ecef;
+    cursor: pointer;
+    font-size: 0.9rem;
+    border-radius: 0 var(--border-radius) var(--border-radius) 0;
+    transition: background-color 0.2s;
+}
+.toggle-btn:hover, .copy-btn:hover {
+    background-color: #d1d5db;
+}
+
+/* --- Strength Meter --- */
+.strength-meter {
+    width: 100%;
+    height: 10px;
+    background-color: #e9ecef;
+    border-radius: 5px;
+    overflow: hidden;
+    margin-bottom: 0.5rem;
+}
+.strength-bar {
+    height: 100%;
+    width: 0;
+    background-color: #dc3545; /* Default Red */
+    transition: width 0.3s ease, background-color 0.3s ease;
+}
+
+/* Strength Bar Colors */
+.strength-bar[data-strength="0"] { width: 10%; background-color: #dc3545; } /* Very Weak */
+.strength-bar[data-strength="1"] { width: 30%; background-color: #fd7e14; } /* Weak */
+.strength-bar[data-strength="2"] { width: 60%; background-color: #ffc107; } /* Medium */
+.strength-bar[data-strength="3"] { width: 90%; background-color: #28a745; } /* Strong */
+.strength-bar[data-strength="4"] { width: 100%; background-color: #20c997; } /* Very Strong */
+
+.strength-text {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--color-text-muted);
+    margin-bottom: 1.5rem;
+}
+
+/* --- Analysis Details --- */
+.analysis-details {
+    margin-top: 1.5rem;
+}
+.crack-time {
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+    font-weight: 500;
+    background-color: var(--color-bg);
+    padding: 0.75rem;
+    border-radius: var(--border-radius);
+}
+.crack-time strong {
+    color: var(--color-primary);
+}
+
+.feedback-list {
+    list-style-type: none;
+    font-size: 0.95rem;
+}
+.feedback-list li {
+    margin-bottom: 0.5rem;
+    position: relative;
+    padding-left: 28px;
+    color: var(--color-danger-dark);
+}
+.feedback-list li::before {
+    content: '✗'; /* Cross */
+    position: absolute;
+    left: 0;
+    top: 0;
+    font-weight: bold;
+    color: #dc3545; /* Red */
+}
+.feedback-list li.valid {
+    color: #155724; /* Dark Green Text */
+}
+.feedback-list li.valid::before {
+    content: '✓'; /* Check */
+    color: var(--color-secure); /* Green */
+}
+
+/* --- Generator --- */
+.generator-options {
+    margin: 2rem 0;
+}
+.option {
+    margin-bottom: 1rem;
+}
+.option label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+}
+.option-checkboxes {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.75rem;
+}
+.checkbox-group {
+    display: flex;
+    align-items: center;
+}
+.checkbox-group input {
+    margin-right: 0.5rem;
+}
+#length-slider {
+    width: 100%;
+    cursor: pointer;
+}
+.btn-primary {
+    display: block;
+    width: 100%;
+    padding: 0.85rem 1rem;
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: #fff;
+    background-color: var(--color-primary);
+    border: none;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+.btn-primary:hover {
+    background-color: #0056b3;
+}
+
+/* Static Page Styles for About, Privacy, Contact */
+.static-page .card { padding-bottom: 2.5rem; }
+.static-page p { margin-bottom: 1rem; line-height: 1.7; }
+.static-page h3 { margin-top: 1.5rem; margin-bottom: 0.5rem; }
+
+/* --- Responsive Design --- */
+@media (max-width: 600px) {
+    .header h1 {
+        font-size: 2rem;
+    }
+    .card {
+        padding: 1.5rem;
+    }
+    .option-checkboxes {
+        grid-template-columns: 1fr;
+    }
+    .toggle-btn, .copy-btn {
+        padding: 0 0.75rem;
+        font-size: 0.8rem;
+    }
+}
